@@ -10,7 +10,7 @@ import { rateLimiter, tryCatchError } from "./utils";
 export const misterCreate = async ({
   model,
   query,
-  important,
+  important = [],
 }: CreateProps) => {
   try {
     for (const item of important) {

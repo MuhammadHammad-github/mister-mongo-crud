@@ -47,7 +47,7 @@ var tryCatchError = (error, text) => {
 var misterCreate = async ({
   model,
   query,
-  important
+  important = []
 }) => {
   try {
     for (const item of important) {
