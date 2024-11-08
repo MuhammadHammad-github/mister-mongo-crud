@@ -1,0 +1,18 @@
+name: Publish to npm
+
+on:
+  push:
+    tags:
+      - "v*.*.*" # Matches tags like v1.0.0, v2.3.4, etc.
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - run: npm install
+      - run: npm test # Optional: Run tests before publishing
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
